@@ -1,0 +1,37 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="PRAD01.Views.PageSitios">
+    <ContentPage.Content>
+        <StackLayout>
+
+
+            <Label Text="Codigo"/>
+            <Entry Keyboard="Numeric"
+             Placeholder="Codigo"
+                   x:Name="id"/>
+
+            <Label Text="Descripcion"/>
+            <Entry Keyboard="Text"
+             Placeholder="Descripcion"
+                   x:Name="descripcion"/>
+
+            <Label Text="Latitud"/>
+            <Entry Keyboard="Numeric"
+             Placeholder="Latitud"
+                   x:Name="latitud"/>
+
+            <Label Text="Longitud"/>
+            <Entry Keyboard="Numeric"
+             Placeholder="Longitud"
+                   x:Name="longitud"/>
+
+            <Label Text="Fecha"/>
+            <DatePicker Format="dd/MM/yyyy"
+                        x:Name="fecha"
+                            />
+
+            <Button x:Name="btnagregar" Text="Agregar sitio" Clicked="btnagregar_Clicked" /> 
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

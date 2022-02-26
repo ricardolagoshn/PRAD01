@@ -1,0 +1,57 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="PRAD01.Views.PageControl">
+    <ContentPage.Content>
+        
+            <StackLayout Margin="20,20,20,20" BackgroundColor="Bisque">
+
+                <Label Text="Codigo"/>
+                <Entry Keyboard="Numeric"
+             Placeholder="Codigo"
+                   x:Name="id"/>
+
+                <Label Text="Nombres"/>
+                <Entry Keyboard="Text"
+             Placeholder="Nombres"
+                   x:Name="nombre"/>
+
+                <Label Text="Apellidos"/>
+                <Entry Keyboard="Text"
+             Placeholder="Apellidos"
+                  x:Name="apellido"/>
+
+                <Label Text="Correo"/>
+                <Entry Keyboard="Email"
+             Placeholder="Correo"
+                   x:Name="correo"/>
+
+                <Label Text="Fecha Nacimiento"/>
+            <DatePicker Format="dd/MM/yyyy"
+                        x:Name="fecha_nac"
+                            />
+
+                <Picker Title="Sexo" x:Name="sexo"
+              TitleColor="Red">
+                    <Picker.ItemsSource>
+                        <x:Array Type="{x:Type x:String}">
+                            <x:String>Masculino</x:String>
+                            <x:String>Femenino</x:String>
+                        </x:Array>
+                    </Picker.ItemsSource>
+                </Picker>
+
+
+            <Button Text="Agregar Persona"
+        Font="Large"
+        BorderWidth="1"
+                    x:Name="btnagregar"
+        Clicked="btnagregar_Clicked" />
+
+
+        </StackLayout>
+
+        
+
+    </ContentPage.Content>
+</ContentPage>

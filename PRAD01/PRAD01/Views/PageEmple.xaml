@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="PRAD01.Views.PageEmple">
+    <ContentPage.Content >
+        
+        <StackLayout BackgroundColor="CadetBlue">
+            
+            <Entry Keyboard="Numeric"
+                   Placeholder="Ingrese numero 1"
+                   x:Name="numero1" />
+
+            <Entry Keyboard="Numeric"
+                   Placeholder="Ingrese Numero 2"
+                   x:Name="numero2" />
+           
+            <Button Text="Suma" x:Name="btnsuma" Clicked="Button_Clicked" BackgroundColor="Beige"  TextColor="Blue"   />
+
+            <Button Text="Resta" x:Name="btnresta" Clicked="btnresta_Clicked"  BackgroundColor="Beige" TextColor="Blue"/>
+
+            <Button Text="Multiplicacion" x:Name="btnmulti" Clicked="btnmulti_Clicked" BackgroundColor="Beige" TextColor="Blue"/>
+
+            <Button Text="Division" x:Name="btndiv" Clicked="btndiv_Clicked"  BackgroundColor="Beige" TextColor="Blue"/>
+
+        </StackLayout>
+    
+    </ContentPage.Content>
+</ContentPage>

@@ -8,17 +8,12 @@ using System.Threading.Tasks;
 
 namespace PRAD01.Controllers
 {
-    public class SitiosController
+    public static class SitiosController
     {
-        // Constructor de clase
-        public SitiosController()
-        {
-        }
-
         // Procedimientos
 
         // Retorna todas las filas de la tabla personas
-        public Task<List<Sitios>> ObtenerListaSitios()
+        public static Task<List<Sitios>> ObtenerListaSitios()
         {
             return DB.dbconexion.Table<Sitios>().ToListAsync();
         }
@@ -27,7 +22,7 @@ namespace PRAD01.Controllers
         // INSERT, SELECT, UPDATE, DELETE 
 
         // CREATE - UPDATE
-        public Task<int> AddSitios(Sitios sitio)
+        public static Task<int> AddSitios(Sitios sitio)
         {
             if (sitio.ID != 0)
             {
@@ -42,7 +37,7 @@ namespace PRAD01.Controllers
         }
 
         // Obtenemos por el ID un registro de una persona
-        public Task<Sitios> ObtenerSitio(int pid)
+        public static Task<Sitios> ObtenerSitio(int pid)
         {
             return DB.dbconexion.Table<Sitios>()
                 .Where(i => i.ID == pid)
@@ -50,7 +45,7 @@ namespace PRAD01.Controllers
         }
 
         // Eliminamos el registro de una persona
-        public Task<int> DelPersona(Sitios persona)
+        public static Task<int> DelPersona(Sitios persona)
         {
             return DB.dbconexion.DeleteAsync(persona);
         }

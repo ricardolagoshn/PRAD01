@@ -7,12 +7,18 @@ using System.Threading.Tasks;
 using Xamarin.Essentials;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
+using PRAD01.Models;
+using PRAD01.Controllers;
+using Plugin.Media;
+using System.IO;
 
 namespace PRAD01.Views
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class PageSitios : ContentPage
     {
+        Plugin.Media.Abstractions.MediaFile photo = null;
+
         public PageSitios()
         {
             InitializeComponent();
@@ -54,9 +60,56 @@ namespace PRAD01.Views
             }
         }
 
+
+        private Byte[] traeImagenByteArray()
+        {
+            if (photo != null)
+            {
+                using (MemoryStream memory = new MemoryStream())
+                {
+                    Stream stream = photo.GetStream();
+                    stream.CopyTo(memory);
+                    return memory.ToArray();
+                }
+            }
+            return null;
+        }
         private async void btnagregar_Clicked(object sender, EventArgs e)
         {
-            
+            if (photo == null)
+                return;
+
+            var site = new Sitios()
+            {
+                descripcion = descripcion.Text,
+                longitud = Convert.ToDouble(longitud.Text),
+                latitud = Convert.ToDouble(latitud.Text),
+                foto = traeImagenByteArray(),
+                fecha = fecha.Date
+            };
+
+            if (await SitiosController.AddSitios(site) > 0)
+                await DisplayAlert("Aviso", "Registro Adicionado", "OK");
+            else
+                await DisplayAlert("Aviso", "ha ocurrido un error", "OK");
+        }
+
+        private async void btnfoto_Clicked(object sender, EventArgs e)
+        {
+            photo = await CrossMedia.Current.TakePhotoAsync(new Plugin.Media.Abstractions.StoreCameraMediaOptions
+            {
+                Directory = "FotosApp",
+                Name = "test.jpg",
+                SaveToAlbum = true
+            });
+
+            if (photo != null)
+            {
+                Foto.Source = ImageSource.FromStream(() => 
+                {
+                    return photo.GetStream();
+                });
+            }
         }
     }
 }

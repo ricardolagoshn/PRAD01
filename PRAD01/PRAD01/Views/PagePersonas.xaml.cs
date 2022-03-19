@@ -47,5 +47,10 @@ namespace PRAD01.Views
         {
             await Navigation.PushAsync(new PageSitios());
         }
+
+        private async void toolmap_Clicked(object sender, EventArgs e)
+        {
+            await Navigation.PushAsync(new PageListaSitios());
+        }
     }
 }

@@ -16,6 +16,12 @@
         <ToolbarItem Text="Eliminar Persona" 
                      x:Name="ToolDelePersona"
                      Clicked="ToolDelePersona_Clicked"/>
+
+        <ToolbarItem Text="Mapa" 
+                     x:Name="toolmap"
+                     IconImageSource="map.png"
+                     Clicked="toolmap_Clicked"/>
+        
     </ContentPage.ToolbarItems>
     
     <ContentPage.Content>

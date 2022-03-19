@@ -45,9 +45,9 @@ namespace PRAD01.Controllers
         }
 
         // Eliminamos el registro de una persona
-        public static Task<int> DelPersona(Sitios persona)
+        public static Task<int> DelPersona(Sitios sitio)
         {
-            return DB.dbconexion.DeleteAsync(persona);
+            return DB.dbconexion.DeleteAsync(sitio);
         }
     }
 }
